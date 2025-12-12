@@ -1,6 +1,6 @@
 # Open Merge Requests (Konflux)
 
-*Last updated: 2025-12-12 10:59:10*
+*Last updated: 2025-12-12 12:30:57*
 
 **Total Konflux MRs: 9**
 
@@ -14,4 +14,4 @@
 | ccx/parquet-factory | [!321](https://gitlab.cee.redhat.com/ccx/parquet-factory/-/merge_requests/321) | fix(deps): update aws-sdk-go-v2 monorepo | 2025-11-12 | app/konflux-ci | ❌ failed | no |
 | ccx/parquet-factory | [!320](https://gitlab.cee.redhat.com/ccx/parquet-factory/-/merge_requests/320) | chore(deps): update quay.io/projectquay/golang docker tag to v1.25 | 2025-11-12 | app/konflux-ci | ✅ ok | no |
 | ccx/content-service | [!842](https://gitlab.cee.redhat.com/ccx/content-service/-/merge_requests/842) | chore(deps): update all dependencies | 2025-11-10 | app/konflux-ci | ✅ ok | no |
-| ccx/parquet-factory | [!317](https://gitlab.cee.redhat.com/ccx/parquet-factory/-/merge_requests/317) | chore(deps): update all dependencies | 2025-11-10 | app/konflux-ci | ❌ failed | no |
+| ccx/parquet-factory | [!317](https://gitlab.cee.redhat.com/ccx/parquet-factory/-/merge_requests/317) | chore(deps): update all dependencies | 2025-11-10 | app/konflux-ci | 🔄 running | no |
