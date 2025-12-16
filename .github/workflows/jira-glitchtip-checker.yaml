@@ -1,0 +1,87 @@
+name: Jira-Glitchtip Integration Checker
+
+on:
+  schedule:
+    - cron: '0 4 * * *'  # daily at 4AM UTC
+  workflow_dispatch:     # allow manual execution
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          cd jira-glitchtip-issues-closer
+          pip install -r requirements.txt
+
+      - name: Update README with integration data
+        env:
+          MAX_DAYS_OF_INACTIVITY: 7
+          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+          GLITCHTIP_TOKEN: ${{ secrets.GLITCHTIP_TOKEN }}
+        run: |
+          cd jira-glitchtip-issues-closer
+          python3 main.py > README.md
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        run: |
+          git add jira-glitchtip-issues-closer/README.md
+
+          if git diff --cached --quiet; then
+            echo "📊 No changes to README.md"
+          else
+            echo "📊 Committing updated Jira-Glitchtip integration data..."
+            git commit -m "chore: update Jira-Glitchtip integration data [bot]"
+            git pull --rebase origin main || git pull --rebase origin master || true
+            git push
+          fi
+
+  close-inactive-jiras:
+    runs-on: ubuntu-latest
+    # Manual trigger only
+    if: github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          cd jira-glitchtip-issues-closer
+          pip install -r requirements.txt
+
+      - name: Close inactive Jira issues
+        env:
+          MAX_DAYS_OF_INACTIVITY: 7
+          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+          GLITCHTIP_TOKEN: ${{ secrets.GLITCHTIP_TOKEN }}
+        run: |
+          cd jira-glitchtip-issues-closer
+          python3 close_jiras.py
