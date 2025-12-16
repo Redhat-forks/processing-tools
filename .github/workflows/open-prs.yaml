@@ -40,11 +40,13 @@ jobs:
           echo "🔍 Fetching open PRs..."
           cd open_mr_pr/github
           python3 list_repos_prs.py
+          # Copy konflux report to README for easy viewing
+          cp open-prs-konflux.md README.md
 
       - name: Commit and push results
         run: |
           # Add generated files
-          git add open_mr_pr/github/open-prs-konflux.md open_mr_pr/github/open-prs-others.md open_mr_pr/github/open-prs.csv || true
+          git add open_mr_pr/github/open-prs-konflux.md open_mr_pr/github/open-prs-others.md open_mr_pr/github/open-prs.csv open_mr_pr/github/README.md || true
 
           # Check if there are changes to commit
           if git diff --cached --quiet; then
