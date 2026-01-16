@@ -1,6 +1,6 @@
 # Open Merge Requests (Others)
 
-*Last updated: 2026-01-16 03:33:45*
+*Last updated: 2026-01-16 13:24:07*
 
 **Total MRs: 16**
 
@@ -8,7 +8,7 @@
 |---------|-------|-------|---------|--------|-----------|-------|
 | ccx/ccx-upgrades-inference | [!134](https://gitlab.cee.redhat.com/ccx/ccx-upgrades-inference/-/merge_requests/134) | [Do Not Merge] Trigger Build | 2026-01-14 | ireyes | ✅ ok | no |
 | ccx/ccx-upgrades-data-eng | [!217](https://gitlab.cee.redhat.com/ccx/ccx-upgrades-data-eng/-/merge_requests/217) | [Do Not Merge] Trigger Build | 2026-01-14 | ireyes | ✅ ok | no |
-| insights-qe/iqe-ccx-plugin | [!1163](https://gitlab.cee.redhat.com/insights-qe/iqe-ccx-plugin/-/merge_requests/1163) | Update pre-commit hooks | 2026-01-09 | iqe-bot | ❌ failed | no |
+| insights-qe/iqe-ccx-plugin | [!1163](https://gitlab.cee.redhat.com/insights-qe/iqe-ccx-plugin/-/merge_requests/1163) | Update pre-commit hooks | 2026-01-09 | iqe-bot | ✅ ok | no |
 | ccx/parquet-factory | [!299](https://gitlab.cee.redhat.com/ccx/parquet-factory/-/merge_requests/299) | TEST PR | 2025-09-30 | jdrobena | ✅ ok | no |
 | ccx/parquet-factory | [!297](https://gitlab.cee.redhat.com/ccx/parquet-factory/-/merge_requests/297) | Draft: Test Commit | 2025-09-26 | jdrobena | ❌ failed | draft |
 | ccx/ccx-data-pipeline | [!1095](https://gitlab.cee.redhat.com/ccx/ccx-data-pipeline/-/merge_requests/1095) | [DON'T MERGE] [CCXDEV-15282] Determine how much CPU/mem our apps realistically need during a PR check | 2025-08-14 | jdiazsua | ✅ ok | no |
